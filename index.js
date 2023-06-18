@@ -34,7 +34,7 @@ let articulosEnStock = [];
 //FUNCIONES ------------------------------------------------------------------------------------
 function abmArticulos() {
    do {
-      menu = parseInt(prompt("Ingrese una opción: 1-Agregar Artículo Nuevo | 2-Agregar Stock | 3-Ver artículos | 4-Volver al menú principal"));
+      menu = parseInt(prompt("Ingrese una opción: \n1-Agregar Artículo Nuevo \n2-Agregar Stock \n3-Ver artículos \n4-Volver al menú principal"));
       switch (menu) {
          case 1:
             const marca = prompt("Ingrese una marca");
@@ -83,8 +83,38 @@ function abmArticulos() {
 }
 
 
-function ventas(){
-   
+function ventas() {
+   let salir = "N";
+
+   do {
+      const buscarMarca = prompt("Ingrese una marca");
+      const buscarModelo = prompt("Ingrese el modelo");
+      const cantidad = parseInt(prompt("Ingrese cantidad a vender"));
+
+      const buscarArticulo = articulosEnStock.find((el) => {
+         return (el.marca == buscarMarca && el.modelo == buscarModelo)
+      });
+
+
+// ME QUEDE ACA ----------------------------------------------------------------------------------------------- 
+
+
+      if (buscarArticulo) {
+         alert("Está a punto de vender: " + cantidad + " de: " + buscarArticulo.marca + " " + buscarArticulo.modelo + "\nPrecio Unitario: " + buscarArticulo.precio + " | Precio Total: " + cantidad * buscarArticulo.precio);
+      } else {
+         alert("No se encontró el artículo que desea incorporar");
+      }
+
+
+
+
+
+
+
+   } while (salir != "N")
+
+
+
 }
 
 
@@ -92,7 +122,7 @@ function ventas(){
 //MENU DE OPCIONES ------------------------------------------------------------------------------
 
 do {
-   menu = parseInt(prompt("Ingrese una opción: 1-Módulo Articulos | 2-Módulo de ventas | 3-Salir"));
+   menu = parseInt(prompt("Ingrese una opción: \n1-Módulo Articulos \n2-Módulo de ventas \n3-Salir"));
    switch (menu) {
       case 1:
          abmArticulos();
