@@ -29,7 +29,7 @@ class Articulos {
    }
 }
 
-//FUNCIONES --------------------------------------------------------------------------------------------------------------
+//FUNCIONES #####################################################################################################################
 function abmArticulos() {
    do {
       menu = parseInt(prompt("Ingrese una opción: \n(1) Agregar Artículo Nuevo \n(2) Agregar Stock \n(3) Ver artículos \n(4) Volver al menú principal"));
@@ -90,7 +90,6 @@ function ventas() {
          return (el.marca == buscarMarca && el.modelo == buscarModelo)
       });
 
-
       if (buscarArticulo) {
          alert("Está a punto de vender: " + cantidad + " de: " + buscarArticulo.marca + " " + buscarArticulo.modelo + "\nPrecio Unitario: " + buscarArticulo.precio + " | Precio Total: " + cantidad * buscarArticulo.precio);
          buscarArticulo.restaStock(cantidad);
@@ -104,19 +103,22 @@ function ventas() {
 
 
 
-//MENU DE OPCIONES ---------------------------------------------------------------------------------------------------
+//MENU DE OPCIONES ############################################################################################################
 do {
    menu = parseInt(prompt("Ingrese una opción: \n(1) Módulo Articulos \n(2) Módulo de Ventas \n(3) Salir"));
    switch (menu) {
       case 1:
          abmArticulos();
          break;
+
       case 2:
          ventas();
          break;
+
       case 3:
          alert("¡Hasta pronto!");
          break;
+         
       default:
          alert("Ingrese una opción válida");
          break;
