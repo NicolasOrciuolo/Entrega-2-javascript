@@ -1,7 +1,7 @@
 let menu;
 
 class Articulos {
-   constructor(marca, modelo, forma, precio, stock) {
+   constructor(marca, modelo, precio, stock) {
       this.marca = marca;
       this.modelo = modelo;
       this.precio = precio;
@@ -9,7 +9,7 @@ class Articulos {
    }
 
    visualizar() {
-      alert("Marca: " + this.marca + " | Modelo: " + this.modelo + " | Precio: " + this.precio + " | Stock: " + this.stock);
+      alert("Marca: " + this.marca + "\nModelo: " + this.modelo + "\nPrecio: " + this.precio + "\nStock: " + this.stock);
    }
 
    agregaStock(cant) {
@@ -19,7 +19,7 @@ class Articulos {
 
    restaStock(cant) {
       if (this.stock == 0) {
-         alert("No posee este artículo para modificar el stock");
+         alert("No posee stock disponible del artículo: " + this.marca + " " + this.modelo);
       } else if (cant > this.stock) {
          alert("No posee stock suficiente para vender esta cantidad de artículos. Cantidad de artículos: " + this.stock);
       } else {
@@ -66,7 +66,7 @@ function abmArticulos() {
 
          case 3:
             for (let i = 0; i < articulosEnStock.length; i++) {
-               console.log(articulosEnStock[i].visualizar());
+               articulosEnStock[i].visualizar();
             }
 
             break;
@@ -96,11 +96,10 @@ function ventas() {
       });
 
 
-// ME QUEDE ACA ----------------------------------------------------------------------------------------------- 
-
-
       if (buscarArticulo) {
          alert("Está a punto de vender: " + cantidad + " de: " + buscarArticulo.marca + " " + buscarArticulo.modelo + "\nPrecio Unitario: " + buscarArticulo.precio + " | Precio Total: " + cantidad * buscarArticulo.precio);
+         buscarArticulo.restaStock(cantidad);
+         buscarArticulo.visualizar();
       } else {
          alert("No se encontró el artículo que desea incorporar");
       }
