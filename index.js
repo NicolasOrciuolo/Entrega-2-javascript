@@ -29,10 +29,10 @@ class Articulos {
    }
 }
 
-//FUNCIONES ------------------------------------------------------------------------------------
+//FUNCIONES --------------------------------------------------------------------------------------------------------------
 function abmArticulos() {
    do {
-      menu = parseInt(prompt("Ingrese una opción: \n1-Agregar Artículo Nuevo \n2-Agregar Stock \n3-Ver artículos \n4-Volver al menú principal"));
+      menu = parseInt(prompt("Ingrese una opción: \n(1) Agregar Artículo Nuevo \n(2) Agregar Stock \n(3) Ver artículos \n(4) Volver al menú principal"));
       switch (menu) {
          case 1:
             const marca = prompt("Ingrese una marca");
@@ -104,10 +104,9 @@ function ventas() {
 
 
 
-//MENU DE OPCIONES ------------------------------------------------------------------------------
-
+//MENU DE OPCIONES ---------------------------------------------------------------------------------------------------
 do {
-   menu = parseInt(prompt("Ingrese una opción: \n1-Módulo Articulos \n2-Módulo de Ventas \n3-Salir"));
+   menu = parseInt(prompt("Ingrese una opción: \n(1) Módulo Articulos \n(2) Módulo de Ventas \n(3) Salir"));
    switch (menu) {
       case 1:
          abmArticulos();
