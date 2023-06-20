@@ -1,4 +1,5 @@
 let menu;
+let articulosEnStock = [];
 
 class Articulos {
    constructor(marca, modelo, precio, stock) {
@@ -28,9 +29,6 @@ class Articulos {
    }
 }
 
-let articulosEnStock = [];
-
-
 //FUNCIONES ------------------------------------------------------------------------------------
 function abmArticulos() {
    do {
@@ -44,7 +42,6 @@ function abmArticulos() {
 
             const articulo = new Articulos(marca, modelo, precio, stock);
             articulosEnStock.push(articulo);
-
             break;
 
          case 2:
@@ -61,14 +58,12 @@ function abmArticulos() {
             } else {
                alert("No se encontró el artículo que desea incorporar");
             }
-
             break;
 
          case 3:
             for (let i = 0; i < articulosEnStock.length; i++) {
                articulosEnStock[i].visualizar();
             }
-
             break;
 
          case 4:
@@ -101,19 +96,10 @@ function ventas() {
          buscarArticulo.restaStock(cantidad);
          buscarArticulo.visualizar();
       } else {
-         alert("No se encontró el artículo que desea incorporar");
+         alert("No se encontró el artículo que desea vender");
       }
 
-
-
-
-
-
-
    } while (salir != "N")
-
-
-
 }
 
 
@@ -121,7 +107,7 @@ function ventas() {
 //MENU DE OPCIONES ------------------------------------------------------------------------------
 
 do {
-   menu = parseInt(prompt("Ingrese una opción: \n1-Módulo Articulos \n2-Módulo de ventas \n3-Salir"));
+   menu = parseInt(prompt("Ingrese una opción: \n1-Módulo Articulos \n2-Módulo de Ventas \n3-Salir"));
    switch (menu) {
       case 1:
          abmArticulos();
@@ -135,7 +121,6 @@ do {
       default:
          alert("Ingrese una opción válida");
          break;
-
    }
 
 } while (menu != 3);
